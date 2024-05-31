@@ -4,7 +4,7 @@ on: [push]
 jobs:
   check-bats-version:
     permissions:
-    contents: read # for actions/checkout to fetch code
+     contents: read # for actions/checkout to fetch code
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
