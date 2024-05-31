@@ -9,6 +9,8 @@ on:
 
 jobs:
   print-hostname:
+    permissions:
+    contents: read # for actions/checkout to fetch code
     runs-on: ubuntu-latest
 
     steps:
