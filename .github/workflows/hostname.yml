@@ -1,0 +1,21 @@
+name: Print Hostname
+
+# Trigger the workflow on push and pull request events
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  print-hostname:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Print the hostname of the runner
+      - name: Print Hostname
+        run: hostname
