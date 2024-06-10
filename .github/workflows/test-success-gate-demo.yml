@@ -1,0 +1,21 @@
+name: Demo Gate Success Path
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Execute Bash Command
+        id: execute-bash
+        run: |
+          echo "This is demo and this should succeed"
+
+      - name: Set Exit Code
+        id: set-exit-code
+        run: |
+          exit 0
