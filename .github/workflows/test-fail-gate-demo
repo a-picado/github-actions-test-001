@@ -1,0 +1,32 @@
+name: Demo Gate Fail Path
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Execute Bash Command
+        id: execute-bash
+        run: |
+          echo "This is demo and this should fail"
+
+      - name: Set Exit Code
+        id: set-exit-code
+        run: |
+          exit 1
+
+      - name: Set Action Output
+        id: set-output
+        run: |
+          # Set the output "result"
+          echo "::set-output name=result::failure"
+
+      - name: Print Result
+        run: |
+          # Print the result
+          echo "Action result: ${{ steps.set-output.outputs.result }}"
